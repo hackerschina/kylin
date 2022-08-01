@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>遇见数据仓库</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{
+            background: #000;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-shadow: 0px 0px 80px;
+        }
+        h1{
+            margin: 0;
+            padding: 0;
+            color: #0ff;
+        }
+        a{color: #fff;}
+        /* ���ӡ� */
+        p{
+            margin: 0;
+        }
+        .box{
+            /* ���ӿ�ȡ� ---��ñ��*/
+            width: 700px;
+            /* ����Ƶ���ж����---��ñ� */
+            text-align: center;
+            /* border: 1px solid #f00; */
+            color: #fff;
+            
+            position: absolute;
+            margin: 20px auto 0;
+            top: 20px;
+            left: 0;
+            right: 0;
+        }
+        /* ͼƬ��ʽ�� */
+
+        img{
+            /* ��Ƶ��ȡ� ---��ò�Ҫ����������ӵĿ��*/
+            width: 700px;
+            height: 390px;
+            /* ��ɫ����ߡ� ---px�Ǵ�ϸ solid��ʵ�� #555����ɫ���� ���԰ٶ�html��ɫ�����޸�*/
+            border: 2px solid #222;
+            /* ͼƬ��Բ�� */
+            border-radius: 5px;
+            /* ����ʱ�� */
+            transition: 0.8s;
+        }
+        .img2:hover{border: 2px solid #980b18}
+
+        .box>div{
+            padding: 20px;
+            /* border: 1px solid #f00; */
+        }
+        .szj{
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #fff;
+            padding: 5px;
+            border: 1px solid #eee;
+            background-color: rgb(0,0,0,0.7)
+        }
+        .yl{
+            display: inline;
+            border-bottom:1px dotted #0ff;
+        }
+        .yl a{
+            text-decoration: none;
+            color:#c6d491;
+            
+        }
+        .yl span{
+            margin-right: 8px;
+        }
+.STYLE2 {color: #F0F0F0}
+    .STYLE3 {
+	font-size: xx-large;
+	font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+   
+            <h1></h1>
+
+<div align="center"><br>
+              
+                  <!-- ���ֲ��� -->
+                        <span class="STYLE3">
+                  <embed height="0" width="0" src="https://m.ximalaya.com/sound/477877435"></embed>
+              
+                  <!-- ����js -->
+              
+                        <script>
+    var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+
+
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+        // ������׾����Ǵ����������
+		var texts = '���ID'.split('');
+
+		var fontSize = 16;
+		var columns = canvas.width/fontSize;
+		// ���ڼ����������ʱ���꣬���Գ��ȼ�Ϊ����
+		var drops = [];
+		//��ʼֵ
+		for(var x = 0; x < columns; x++){
+			drops[x] = 1;
+		}
+
+		function draw(){
+			//�ñ�������͸������͸��
+			ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			//������ɫ
+			ctx.fillStyle = '#0F0';
+			ctx.font = fontSize + 'px arial';
+			//�����������
+			for(var i = 0; i < drops.length; i++){
+				var text = texts[Math.floor(Math.random()*texts.length)];
+				ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+				if(drops[i]*fontSize > canvas.height || Math.random() > 0.95){
+					drops[i] = 0;
+				}
+
+				drops[i]++;
+			}
+		}
+	setInterval(draw, 33);
+                        </script>
+                        <span class="STYLE2"><a href="https://www.xladmin.com" target="_blank">www.xladmin.com </a></span></span> </div>
+</body>
+</html>
